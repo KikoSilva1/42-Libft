@@ -6,7 +6,7 @@
 /*   By: framiran <framiran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 16:55:21 by framiran          #+#    #+#             */
-/*   Updated: 2025/04/18 18:33:20 by framiran         ###   ########.fr       */
+/*   Updated: 2025/04/24 13:54:20 by framiran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	unsigned char*	dst_cpy;
-	unsigned char*	src_cpy;
+	unsigned char	*dst_cpy;
+	unsigned char	*src_cpy;
 
-	dst_cpy = (unsigned char*) dst;
-	src_cpy = (unsigned char*) src;
-	if (dst == (void *)0 && src == (void *)0)
+	dst_cpy = (unsigned char *) dst;
+	src_cpy = (unsigned char *) src;
+	if (dst == (void *) 0 && src == (void *) 0)
 		return (dst);
 	while (n--)
 		*(dst_cpy++) = *(src_cpy++);

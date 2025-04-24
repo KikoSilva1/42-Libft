@@ -6,7 +6,7 @@
 /*   By: framiran <framiran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 18:57:01 by framiran          #+#    #+#             */
-/*   Updated: 2025/04/18 19:19:55 by framiran         ###   ########.fr       */
+/*   Updated: 2025/04/24 14:13:12 by framiran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 char	*ft_strdup(const char *s1)
 {
-	char*	ptr;
+	char	*ptr;
 	int		i;
 
 	i = 0;
 	ptr = malloc((ft_strlen(s1) + 1));
 	if (!ptr)
 		return (NULL);
-	while(s1[i] != '\0')
+	while (s1[i] != '\0')
 	{
 		ptr[i] = s1[i];
 		i++;

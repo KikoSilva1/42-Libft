@@ -6,7 +6,7 @@
 /*   By: framiran <framiran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 16:55:32 by framiran          #+#    #+#             */
-/*   Updated: 2025/04/23 17:15:59 by framiran         ###   ########.fr       */
+/*   Updated: 2025/04/24 13:55:44 by framiran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,10 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	number_of_letters_dst;
 	size_t	number_of_letters_src;
 	size_t	start_indice;
-	int		remaining_size;
+	size_t	remaining_size;
 
 	if (size <= ft_strlen(dst))
 		return (size + ft_strlen(src));
-
 	number_of_letters_dst = ft_strlen(dst);
 	number_of_letters_src = ft_strlen(src);
 	remaining_size = size - number_of_letters_dst - 1;
@@ -36,3 +35,12 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	dst[start_indice] = '\0';
 	return (number_of_letters_dst + number_of_letters_src);
 }
+/*#include <string.h>
+int main()
+{
+	char dest[30];
+	memset(dest, 0, 30);
+	char *src = (char *)"AAAAAAAAA";
+	memset(dest, 'C', 5); // dest = "CCCCCA\0..."
+	ft_strlcat(dest, src, -1);
+}*/

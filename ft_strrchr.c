@@ -6,19 +6,19 @@
 /*   By: framiran <framiran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 12:45:13 by framiran          #+#    #+#             */
-/*   Updated: 2025/04/23 17:11:51 by framiran         ###   ########.fr       */
+/*   Updated: 2025/04/24 13:57:11 by framiran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char*	ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	char*	c_p;
-	int		i;
+	char			*c_p;
+	int				i;
 	unsigned char	uc;
 
-	uc = (unsigned char)c;
+	uc = (unsigned char) c;
 	c_p = NULL;
 	i = 0;
 	while (s[i] != '\0')

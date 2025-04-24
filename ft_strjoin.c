@@ -6,7 +6,7 @@
 /*   By: framiran <framiran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 13:36:23 by framiran          #+#    #+#             */
-/*   Updated: 2025/04/21 14:32:03 by framiran         ###   ########.fr       */
+/*   Updated: 2025/04/24 15:03:00 by framiran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	size;
 	size_t	i;
 	size_t	j;
-	char*	s3;
+	char	*s3;
 
 	size = ft_strlen(s1) + ft_strlen(s2) + 1;
 	s3 = malloc(size * sizeof(char));
 	i = 0;
 	j = 0;
-	if(!s3)
+	if (!s3)
 		return (NULL);
-	while (i < ft_strlen(s1)) //tem de se < porque se for <= copia o char null
+	while (i < ft_strlen(s1))
 	{
 		s3[i] = s1[i];
 		i++;
@@ -37,5 +37,5 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		j++;
 	}
 	s3[i] = '\0';
-	return s3;
+	return (s3);
 }

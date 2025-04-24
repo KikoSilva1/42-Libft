@@ -6,7 +6,7 @@
 /*   By: framiran <framiran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 18:47:39 by framiran          #+#    #+#             */
-/*   Updated: 2025/04/18 18:53:33 by framiran         ###   ########.fr       */
+/*   Updated: 2025/04/24 14:12:18 by framiran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	unsigned char	*ptr;
 	size_t			i;
 
+	if (size != 0 && nmemb > __SIZE_MAX__ / size)
+		return (NULL);
 	total = nmemb * size;
 	ptr = (unsigned char *)malloc(total);
 	if (!ptr)
@@ -27,4 +29,3 @@ void	*ft_calloc(size_t nmemb, size_t size)
 		ptr[i++] = 0;
 	return ((void *)ptr);
 }
-

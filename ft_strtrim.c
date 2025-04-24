@@ -6,14 +6,13 @@
 /*   By: framiran <framiran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 14:34:45 by framiran          #+#    #+#             */
-/*   Updated: 2025/04/23 15:43:51 by framiran         ###   ########.fr       */
+/*   Updated: 2025/04/24 14:51:08 by framiran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int	set_contains(char c, char const *set)
+static int	set_contains(char c, char const *set)
 {
 	size_t	i;
 
@@ -24,15 +23,16 @@ int	set_contains(char c, char const *set)
 			return (1);
 		i++;
 	}
-	return 0;
+	return (0);
 }
-char *ft_strtrim(char const *s1, char const *set)
+
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t start_indice;
-	size_t end_indice;
-	size_t size;
-	char *str;
-	size_t i;
+	size_t	start_indice;
+	size_t	end_indice;
+	size_t	size;
+	char	*str;
+	size_t	i;
 
 	if (!s1 || !set)
 		return (NULL);
@@ -52,5 +52,3 @@ char *ft_strtrim(char const *s1, char const *set)
 	ft_strlcpy(str, &s1[start_indice], size + 1);
 	return (str);
 }
-
-
