@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: framiran <framiran@student.42.fr>          +#+  +:+       +#+        */
+/*   By: framiran <framiran@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/19 19:47:15 by framiran          #+#    #+#             */
-/*   Updated: 2025/04/24 14:41:20 by framiran         ###   ########.fr       */
+/*   Updated: 2025/04/29 19:06:05 by framiran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,31 +43,12 @@ static char	**free_array(char **array, int last_index)
 	return (NULL);
 }
 
-static void	create_word(char **array, int i, const char *s, int start, int j)
+char	**fill_array(char **array, char const *s, char c)
 {
-	array[i] = malloc(j - start + 1);
-	if (!array[i])
-	{
-		free_array(array, i);
-		return;
-	}
-	ft_strlcpy(array[i], &s[start], j - start + 1);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	int			words;
-	char		**array;
 	size_t		i;
 	size_t		j;
 	size_t		start;
 
-	if (!s)
-		return (NULL);
-	words = count_words(s, c);
-	array = malloc((words + 1) * sizeof(char *));
-	if (!array)
-		return (NULL);
 	i = 0;
 	start = 0;
 	j = 0;
@@ -77,10 +58,10 @@ char	**ft_split(char const *s, char c)
 		{
 			if (j > start)
 			{
-				create_word(array, i, s, start, j);
+				array[i] = malloc(j - start + 1);
 				if (!array[i])
-					return (NULL);
-				i++;
+					return (free_array(array, i));
+				ft_strlcpy(array[i++], &s[start], j - start + 1);
 			}
 			start = j + 1;
 		}
@@ -88,4 +69,16 @@ char	**ft_split(char const *s, char c)
 	}
 	array[i] = NULL;
 	return (array);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**array;
+
+	if (!s)
+		return (NULL);
+	array = malloc((count_words(s, c) + 1) * sizeof(char *));
+	if (!array)
+		return (NULL);
+	return (fill_array(array, s, c));
 }

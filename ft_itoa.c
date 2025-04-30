@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: framiran <framiran@student.42.fr>          +#+  +:+       +#+        */
+/*   By: framiran <framiran@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 17:34:16 by framiran          #+#    #+#             */
-/*   Updated: 2025/04/24 15:00:02 by framiran         ###   ########.fr       */
+/*   Updated: 2025/04/29 19:05:36 by framiran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,19 @@ static int	calculate_size(long n)
 	return (size);
 }
 
+static void	fill_number(char *str, long ln, int size)
+{
+	int	i;
+
+	i = 1;
+	while (ln > 0)
+	{
+		str[size - i] = '0' + (ln % 10);
+		ln /= 10;
+		i++;
+	}
+}
+
 char	*ft_itoa(int n)
 {
 	long	ln;
@@ -53,12 +66,7 @@ char	*ft_itoa(int n)
 		ln = -ln;
 	}
 	i = 1;
-	while (ln > 0)
-	{
-		str[size - i] = '0' + ln % 10;
-		i++;
-		ln = ln / 10;
-	}
+	fill_number(str, ln, size);
 	return (str);
 }
 /*

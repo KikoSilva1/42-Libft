@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: framiran <framiran@student.42.fr>          +#+  +:+       +#+        */
+/*   By: framiran <framiran@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 16:54:48 by framiran          #+#    #+#             */
-/*   Updated: 2025/04/24 13:51:33 by framiran         ###   ########.fr       */
+/*   Updated: 2025/04/29 19:05:20 by framiran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_bzero(void *s, unsigned int n)
+#include "libft.h"
+
+void	ft_bzero(void *s, size_t n)
 {
-	unsigned int	i;
+	size_t			i;
 	unsigned char	*loc;
 
 	loc = (unsigned char *) s;
